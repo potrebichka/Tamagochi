@@ -6,13 +6,13 @@ import {Creature} from './backend-code.js';
 
 let tamagotchi;
 
-function addUser() {
-  $("#startGame").click(function(){
-    tamagotchi = new Creature();
-    $("#startGame").hide();
-    $("#feed, #play, #rest, #bathroom, #love").delay(800).fadeIn()();
-    tamagotchi.reduceStats();
-  });
+// function addUser() {
+//   $("#startGame").click(function(){
+//     tamagotchi = new Creature();
+//     $("#startGame").hide();
+//     $("#feed, #play, #rest, #bathroom, #love").delay(800).fadeIn()();
+//     tamagotchi.reduceStats();
+//   });
 
 function takeAction(){
   if (!tamagotchi.heDead) {
@@ -27,27 +27,7 @@ function takeAction(){
   }
 }
 
-  $("#feed").click(function(){
-    tamagotchi.feed();
-    takeAction();
-  });
-  $("#play").click(function(){
-    tamagotchi.play();
-    takeAction();
-  });
-  $("#rest").click(function(){
-    tamagotchi.rest();
-    takeAction();
-  });
-  $("#bathroom").click(function(){
-    tamagotchi.bathroom();
-    takeAction();
-  });
-  $("#love").click(function(){
-    tamagotchi.love();
-    takeAction();
-  });
-}
+
 
 function status() {
   if (tamagotchi.sick) {
@@ -87,16 +67,39 @@ function status() {
 //
 //
 // });
-
 $(document).ready(function() {
+
+  console.log("Hello");
   $('#newUser').submit(function(event) {
     event.preventDefault();
     var userName1 = $('#userName').val();
     let user = new Object;
     user.name = userName1;
 
-   $("#greeting").text("Welcome " + userName1 + "!")
+    $("#greeting").text("Welcome " + userName1 + "!")
 
 
-    });
   });
+
+  $("#feedButton").click(function(){
+    console.log("hello!");
+    tamagotchi.feed();
+    takeAction();
+  });
+  $("#playButton").click(function(){
+    tamagotchi.play();
+    takeAction();
+  });
+  $("#restButton").click(function(){
+    tamagotchi.rest();
+    takeAction();
+  });
+  $("#bathroomButton").click(function(){
+    tamagotchi.bathroom();
+    takeAction();
+  });
+  $("#loveButton").click(function(){
+    tamagotchi.love();
+    takeAction();
+  });
+});
