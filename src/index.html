@@ -5,18 +5,66 @@
   </head>
   <body>
     <br>
-    <h3>Welcome to Tamagotchi World!</h3>
-    <form id="newUser">
-      <div class="form-group">
-        <label for="userName">Enter your username</label>
-        <input type="text" class="form-control" id= "userName">
-      </div>
-      <button type="submit" class="btn btn-primary" id= "add-address">Play!</button>
-
-    </form>
+    <h1><center>Welcome to Tamagotchi World!<center></h1>
     <br>
-    <div id = "greeting">
+      <div class="container">
+        <form id="newUser">
+          <label for="userName">Enter your username</label>
+          <input type="text" class="form-control" id= "userName">
+          <br>
+          <button type="submit" class="btn btn-primary" id="addUser">Start!</button>
+        </form>
+      </div>
+    <br>
+    <div class="container" id ="greeting">
     </div>
-    <div id="showGame"></div>
+    <div class="container">
+      <div class="row">
+         <div class="col">
+           <label id="feed" for="feed"></label><br>
+         </div>
+         <div class="col">
+           <label id="play" for="play"></label><br>
+         </div>
+         <div class="col">
+           <label id="rest" for="rest"></label><br>
+         </div>
+         <div class="col">
+           <label id="bathroom" for="bathroom"></label><br>
+         </div>
+         <div class="col">
+           <label id="love" for="love"></label><br>
+         </div>
+         <div class="col">
+           <label id="clean" for="clean"></label><br>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col">
+           <button id="feed" type="button" class="btn btn-primary">Feed</button>
+         </div>
+         <div class="col">
+           <button id="play" type="button" class="btn btn-primary">Play</button>
+         </div>
+         <div class="col">
+           <button id="rest" type="button" class="btn btn-primary">Rest</button>
+         </div>
+         <div class="col">
+           <button id="bathroom" type="button" class="btn btn-primary">Bath</button>
+         </div>
+         <div class="col">
+           <button id="love" type="button" class="btn btn-primary">Pet</button>
+         </div>
+         <div class="col">
+           <button id="clean" type="button" class="btn btn-danger">Clean</button>
+         </div>
+       </div>
+     </div>
+     <div id="sick"></div>
+     <div id="criticalCondition"></div>
+     <div id="heDead"></div>
+     <div id="dirty"></div>
+     <div id="gone"></div>
+     <div id="sad"></div>
   </body>
 </html>
