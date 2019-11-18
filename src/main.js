@@ -5,31 +5,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Creature} from './backend-code.js';
 
 let tamagotchi;
+tamagotchi = new Creature();
 
-// function addUser() {
-//   $("#startGame").click(function(){
-//     tamagotchi = new Creature();
-//     $("#startGame").hide();
-//     $("#feed, #play, #rest, #bathroom, #love").delay(800).fadeIn()();
-//     tamagotchi.reduceStats();
-//   });
+function addUser() {
 
-function takeAction(){
+}
+
+export function takeAction(){
   if (!tamagotchi.heDead) {
     $("#feed").html(`Food Level: ${tamagotchi.food}`);
     $("#play").html(`Happiness Level: ${tamagotchi.play}`);
     $("#rest").html(`Energy Level: ${tamagotchi.energy}`);
-    $("#bathroom").html(`Toilet Satisfaction: ${tamagotchi.toilet}`);
+    $("#bathroom").html(`Bath Satisfaction: ${tamagotchi.dirty}`);
     $("#love").html(`Creature love level: ${tamagotchi.love}`);
+    $("#clean").html(`Toilet Satisfaction: ${tamagotchi.toilet}`);
     if(tamagotchi.heDead === true){
       $("button").hide();
     }
   }
 }
-
-
-
-function status() {
+//
+//
+//
+export function status() {
   if (tamagotchi.sick) {
     $("#sick").text("I'm sick!");
   } else {
@@ -78,28 +76,55 @@ $(document).ready(function() {
 
     $("#greeting").text("Welcome " + userName1 + "!")
 
-
   });
 
+  $("#addUser").click(function(){
+    $("#newUser").hide();
+    $("#feed, #play, #rest, #bathroom, #love").delay(800).fadeIn();
+    takeAction();
+    tamagotchi.reduceStats();
+  });
+//
   $("#feedButton").click(function(){
     console.log("hello!");
-    tamagotchi.feed();
+    $("#feedOptions").show();
+    // tamagotchi.feed();
+    takeAction();
+  });
+
+  $("#fruitButton").click(function() {
+    tamagotchi.feed('fruit');
+    takeAction();
+  });
+
+  $("#veggiesButton").click(function() {
+    tamagotchi.feed('veggies');
+    takeAction();
+  });
+
+  $("#meatButton").click(function() {
+    tamagotchi.feed('meat');
     takeAction();
   });
   $("#playButton").click(function(){
-    tamagotchi.play();
+    console.log(tamagotchi);
+    tamagotchi.playNow();
     takeAction();
   });
   $("#restButton").click(function(){
-    tamagotchi.rest();
+    tamagotchi.restNow();
     takeAction();
   });
   $("#bathroomButton").click(function(){
-    tamagotchi.bathroom();
+    tamagotchi.bathNow();
     takeAction();
   });
   $("#loveButton").click(function(){
-    tamagotchi.love();
+    tamagotchi.loveNow();
+    takeAction();
+  });
+  $("#cleanButton").click(function(){
+    tamagotchi.toiletNow();
     takeAction();
   });
 });
